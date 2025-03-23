@@ -1,4 +1,48 @@
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .list {
     list-style: none;
     padding: 0;
+    margin: 0;
+}
+
+.item {
+    background-color: #222;
+    margin-bottom: 12px;
+    padding: 16px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+    /* Анімація появи */
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+.link {
+    text-decoration: none;
+    color: #3dbfff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.link:hover {
+    color: #66d0ff;
 }

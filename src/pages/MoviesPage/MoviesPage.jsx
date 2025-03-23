@@ -1,42 +1,54 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { searchMovies } from '../../services/api';
-import css from './MoviesPage.module.css';
 import MovieList from '../../components/MovieList/MovieList';
+import css from './MoviesPage.module.css';
 
 export default function MoviesPage() {
-  const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') || '';
 
   const handleChange = (e) => {
-    setQuery(e.target.value);
+    const value = e.target.value;
+    // Оновлюємо параметр "query" у URL
+    setSearchParams(value ? { query: value } : {});
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (query.trim() === '') return;
+  useEffect(() => {
+    const fetchMovies = async () => {
+      if (!query) {
+        setMovies([]);
+        return;
+      }
 
-    try {
-      setLoading(true);
-      const results = await searchMovies(query);
-      setMovies(results);
-    } catch (error) {
-      console.error('❌ Помилка при пошуку фільмів:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+      try {
+        setLoading(true);
+        const results = await searchMovies(query);
+        setMovies(results);
+      } catch (error) {
+        console.error('❌ Помилка при пошуку фільмів:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMovies();
+  }, [query]);
 
   return (
     <div className={css.wrapper}>
       <h1 className={css.title}>Пошук фільмів</h1>
 
-      <form onSubmit={handleSubmit} className={css.form}>
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className={css.form}
+      >
         <input
           type="text"
           value={query}
           onChange={handleChange}
-          
           className={css.input}
         />
         <button type="submit" className={css.button}>

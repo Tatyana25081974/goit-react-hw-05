@@ -9,7 +9,13 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
-
+.poster {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
 
 .title {
     font-size: 28px;
@@ -31,7 +37,31 @@
 .genres {
     font-style: italic;
     color: #ccc;
+    margin-bottom: 20px;
 }
 
+.subTitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    color: #3dbfff;
+}
 
+.subLinks {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
 
+.subLinks li a {
+    color: #3dbfff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.subLinks li a:hover {
+    color: #66d0ff;
+}
