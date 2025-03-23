@@ -1,11 +1,11 @@
-import MovieItem from './MovieItem';
+import MovieItem from '../MovieItem/MovieItem';
 import css from './MovieList.module.css';
 
 export default function MovieList({ movies }) {
   return (
     <ul className={css.list}>
       {movies.map((movie, index) => (
-        <MovieItem key={movie.id} movie={movie} />
+       <MovieItem key={movie.id} movie={movie} /> 
       ))}
     </ul>
   );
