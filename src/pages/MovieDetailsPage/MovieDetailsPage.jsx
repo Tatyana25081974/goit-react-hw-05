@@ -44,10 +44,10 @@ export default function MovieDetailsPage() {
       <p className={css.subTitle}>Додаткова інформація:</p>
       <ul className={css.subLinks}>
         <li>
-          <Link to="cast" state={{ from: backLinkRef.current }}>Cast</Link>
+          <Link to="cast" state={{ from: backLinkRef.current }}>Акторський склад</Link>
         </li>
         <li>
-          <Link to="reviews" state={{ from: backLinkRef.current }}>Reviews</Link>
+          <Link to="reviews" state={{ from: backLinkRef.current }}>Відгуки</Link>
         </li>
       </ul>
 

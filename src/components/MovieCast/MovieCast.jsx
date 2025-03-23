@@ -18,7 +18,7 @@ export default function MovieCast() {
 },
 
             params: {
-              language: 'en-US',
+              language: 'uk-UA',
             },
           }
         );

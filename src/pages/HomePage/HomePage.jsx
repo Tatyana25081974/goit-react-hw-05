@@ -18,7 +18,7 @@ export default function HomePage() {
 
   return (
     <main className={css.main}>
-      <h1 className={css.title}>Trending Today 🎬</h1>
+      <h1 className={css.title}>Популярні сьогодні 🎬</h1>
       {error && <p className={css.error}>{error}</p>}
       {movies.length > 0 ? (
         <MovieList movies={movies} />
