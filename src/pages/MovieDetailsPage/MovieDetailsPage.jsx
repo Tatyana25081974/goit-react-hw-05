@@ -29,10 +29,13 @@ export default function MovieDetailsPage() {
     : 'https://via.placeholder.com/300x450?text=No+Image';
 
   return (
-    <div className={css.wrapper}>
-      <BackButton to={backLinkRef.current} />
+    <div className={css.container}>
+  <BackButton to={backLinkRef.current} />
 
-      <img className={css.poster} src={posterUrl} alt={movie.title} />
+  <div className={css.mainContent}>
+    <img className={css.poster} src={posterUrl} alt={movie.title} />
+
+    <div className={css.details}>
       <h2 className={css.title}>{movie.title}</h2>
       <p className={css.rating}>Рейтинг: {movie.vote_average}</p>
       <p className={css.overview}>Опис: {movie.overview}</p>
@@ -40,7 +43,6 @@ export default function MovieDetailsPage() {
         Жанри: {movie.genres.map(genre => genre.name).join(', ')}
       </p>
 
-      <hr />
       <p className={css.subTitle}>Додаткова інформація:</p>
       <ul className={css.subLinks}>
         <li>
@@ -50,10 +52,15 @@ export default function MovieDetailsPage() {
           <Link to="reviews" state={{ from: backLinkRef.current }}>Відгуки</Link>
         </li>
       </ul>
-
-      <Suspense fallback={<p>Завантаження...</p>}>
-        <Outlet />
-      </Suspense>
     </div>
+  </div>
+
+  <div className={css.dynamicContent}>
+    <Suspense fallback={<p>Завантаження...</p>}>
+      <Outlet />
+    </Suspense>
+  </div>
+</div>
+
   );
 }
