@@ -1,4 +1,5 @@
-import BackButton from '../../components/BackButton'; // змінюй шлях, якщо потрібно
+import BackButton from '../../components/BackButton/BackButton';
+
 import css from './NotFoundPage.module.css';
 
 export default function NotFoundPage() {
