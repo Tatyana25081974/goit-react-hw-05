@@ -36,7 +36,7 @@ export default function MoviesPage() {
           type="text"
           value={query}
           onChange={handleChange}
-          placeholder="Введіть назву фільму..."
+          
           className={css.input}
         />
         <button type="submit" className={css.button}>
