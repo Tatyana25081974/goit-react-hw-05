@@ -1,0 +1,64 @@
+.castItem {
+    width: 100%;
+    height: 280px;
+    background-color: #2b2b3d;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.castItem:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.castImg {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.actorName {
+    font-weight: 600;
+    font-size: 16px;
+    color: #f0f0f0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 4px;
+}
+
+.character {
+    font-size: 14px;
+    color: #bbb;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Адаптив для мобілок */
+@media (max-width: 768px) {
+    .castItem {
+        height: 260px;
+    }
+
+    .castImg {
+        height: 180px;
+    }
+
+    .actorName {
+        font-size: 15px;
+    }
+
+    .character {
+        font-size: 13px;
+    }
+}

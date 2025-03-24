@@ -3,62 +3,23 @@
     background-color: #1e1e2f;
     color: #f0f0f0;
     border-radius: 10px;
+    margin-top: 20px;
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(10px);
 }
 
-.castList {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 20px;
-    padding: 0;
-    margin: 0;
+.castWrapper h3 {
+    margin-bottom: 16px;
+    font-size: 24px;
+    color: #f0f0f0;
 }
 
-.castItem {
-    background-color: #2b2b3d;
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    padding: 10px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.castItem:hover {
-    transform: scale(1.03);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.castImg {
-    width: 100%;
-    height: 200px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    object-fit: cover;
-}
-
-.actorName {
-    font-weight: 600;
-    margin-bottom: 4px;
-    font-size: 16px;
-}
-
-.character {
-    font-size: 14px;
-    color: #bbb;
-}
-
-/* 📱 Mobile optimization */
-@media (max-width: 600px) {
-    .castImg {
-        height: 180px;
-    }
-
-    .actorName {
-        font-size: 15px;
-    }
-
-    .character {
-        font-size: 13px;
+/* Анімація появи */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -66,25 +27,5 @@
 @media (min-width: 1024px) {
     .castWrapper {
         padding: 30px;
-    }
-
-    .castItem {
-        padding: 16px;
-    }
-
-    .castImg {
-        height: 220px;
-    }
-}
-.fadeWrapper {
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeInUp 0.5s ease forwards;
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }

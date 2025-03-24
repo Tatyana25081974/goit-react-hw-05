@@ -1,16 +1,17 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import css from './BackButton.module.css';
 
 export default function BackButton({ to }) {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleGoBack = () => {
-    
     if (to) {
       navigate(to);
+    } else if (location.state?.from) {
+      navigate(location.state.from); // ← беремо з location.state
     } else {
-      
-      navigate('/movies');
+      navigate('/movies'); // fallback
     }
   };
 
