@@ -1,13 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import css from './BackButton.module.css';
 
-export default function BackButton() {
+export default function BackButton({ to }) {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
-    if (window.history.state && window.history.state.idx > 0) {
-      navigate(-1);
+    
+    if (to) {
+      navigate(to);
     } else {
+      
       navigate('/movies');
     }
   };
@@ -18,4 +20,3 @@ export default function BackButton() {
     </button>
   );
 }
-

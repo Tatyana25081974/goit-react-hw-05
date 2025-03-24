@@ -7,15 +7,23 @@ import css from './MoviesPage.module.css';
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') || '';
 
+ 
   const handleChange = (e) => {
-    const value = e.target.value;
-    // Оновлюємо параметр "query" у URL
-    setSearchParams(value ? { query: value } : {});
+    setSearchValue(e.target.value);
   };
 
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const trimmedQuery = searchValue.trim();
+    setSearchParams(trimmedQuery ? { query: trimmedQuery } : {});
+  };
+
+  
   useEffect(() => {
     const fetchMovies = async () => {
       if (!query) {
@@ -41,13 +49,10 @@ export default function MoviesPage() {
     <div className={css.wrapper}>
       <h1 className={css.title}>Пошук фільмів</h1>
 
-      <form
-        onSubmit={(e) => e.preventDefault()}
-        className={css.form}
-      >
+      <form onSubmit={handleSubmit} className={css.form}>
         <input
           type="text"
-          value={query}
+          value={searchValue}
           onChange={handleChange}
           className={css.input}
         />
