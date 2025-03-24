@@ -1,4 +1,6 @@
-.wrapper {
+/* Основний контейнер */
+.wrapper,
+.container {
     max-width: 1000px;
     margin: 40px auto;
     padding: 20px;
@@ -7,8 +9,12 @@
     color: #ffffff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    /* щоб фон був по всій висоті */
+    box-sizing: border-box;
 }
 
+/* Головна секція з картинкою і деталями */
 .mainContent {
     display: flex;
     gap: 30px;
@@ -61,6 +67,7 @@
     color: #3dbfff;
 }
 
+/* Секція "Акторський склад" і "Відгуки" */
 .subLinks {
     list-style: none;
     padding: 0;
@@ -68,6 +75,7 @@
     gap: 40px;
     margin-bottom: 20px;
     margin-left: 2px;
+    flex-direction: row;
 }
 
 .subLinks li a {
@@ -82,14 +90,17 @@
     color: #66d0ff;
 }
 
-/* Відображення вбудованого контенту (акторів або відгуків) */
+/* Контейнер для Outlet (вкладені маршрути) */
 .dynamicContent {
     margin-top: 40px;
-    position: relative;
+    padding: 20px;
+    background-color: #1e1e2f;
+    /* темний фон для запобігання білому екрану */
     animation: scrollUp 0.8s ease-out;
+    border-radius: 10px;
 }
 
-/* Анімація появи контенту знизу */
+/* Анімація появи */
 @keyframes scrollUp {
     0% {
         opacity: 0;
@@ -102,7 +113,32 @@
     }
 }
 
-/* Додатковий клас, якщо треба окремо додавати */
 .scroll-up {
     animation: scrollUp 0.8s ease-out forwards;
+}
+
+/* 📱 Адаптація для мобільних екранів */
+@media (max-width: 600px) {
+    .mainContent {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .poster {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+
+    .details {
+        width: 100%;
+        text-align: center;
+    }
+
+    .subLinks {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
 }

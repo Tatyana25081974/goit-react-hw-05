@@ -3,7 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  /* Завжди темна тема */
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
@@ -13,30 +13,37 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Посилання */
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  color: #3dbfff;
+  text-decoration: none;
 }
 
+a:hover {
+  color: #66d0ff;
+}
+
+/* Базові стилі для всього документа */
+html,
 body {
   margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    background-color: #242424;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #242424;
+  color: #ffffff;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
+/* Заголовки */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
+/* Кнопки */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -48,26 +55,22 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: #3dbfff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+/* ❌ ВИДАЛЕНО — не дає білому фону з'являтись */
+/* @media (prefers-color-scheme: light) {
+    ...
+  } */
+
+/* Обгортка сторінки */
 .page {
   background-color: #1e1e2f;
   min-height: 100vh;
@@ -76,6 +79,7 @@ button:focus-visible {
   padding: 40px 20px;
 }
 
+/* Контейнер контенту */
 .wrapper {
   max-width: 1000px;
   width: 100%;
